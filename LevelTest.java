@@ -13,8 +13,10 @@ import java.io.File;
 import java.io.IOException;
 
 import javax.imageio.ImageIO;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 
@@ -24,426 +26,550 @@ public class LevelTest extends JFrame{
 		setSize(550,730);
 		Container contentPane = getContentPane();
 		LevelTestPanel panel = new LevelTestPanel();
-		//panel.setBackground(new Color(255, 	218, 	185));//ïåðñèê
-		//panel.setBackground(new Color(255, 	250, 	205));//ëèìîí-êðåì
-		//panel.setBackground(new Color(199, 	252, 	236));//ãîëóáîé
-		panel.setBackground(new Color(216, 	191, 	216));//÷åðòîïîëîõ
+		panel.setBackground(new Color(255,235,205));
 		contentPane.add(panel);
 	}
 }
 class LevelTestPanel extends JPanel{
-	
+
+	static JFrame frame2;
+	JFrame newFrame;
 	private BufferedImage speak;
 	private BufferedImage read;
 	private BufferedImage write;
 	private BufferedImage listen;
 	private BufferedImage vocabulary;
-	private String s="ÃÎÂÎÐÞ";
-	private String sa="Pictures/speak.jpg";
-	private String pic="Pictures/write.jpg";
-	private String B1 ="Áåãëî è ãðàìîòíî ðàçãîâàðèâàþ \n"
-                       + "íà ëþáûå òåìû";
-	
-public LevelTestPanel(){
-	setLayout(null);	
-	try {               
-        speak = ImageIO.read(new File("Pictures/speak.jpg"));
-        write = ImageIO.read(new File("Pictures/write.jpg"));
-        read = ImageIO.read(new File("Pictures/read.jpg"));
-        listen = ImageIO.read(new File("Pictures/listen.jpg"));
-        vocabulary = ImageIO.read(new File("Pictures/vocabulary.jpg"));
-     } catch (IOException ex) {}
-	
-	JRadioButton Button1 = new JRadioButton("Íå ìîãó ãîâîðèòü, íî çíàþ íåñêîëüêî ñëîâ ñëîâ è ôðàç");
-	JRadioButton Button2 = new JRadioButton("Ñ îøèáêàìè, íî ãîâîðþ íà îáùèå òåìû");
-	JRadioButton Button3 = new JRadioButton(B1);//
-	
-	JRadioButton Button4 = new JRadioButton("Íå óìåþ ïèñàòü, èëè ìîãó íàïèñàòü íåñêîëüêî ñëîâ è ôðàç");
-	JRadioButton Button5 = new JRadioButton("Èñïîëüçóÿ ñëîâàðè ïèøó ïðîñòûå ïèñüìà, îáùàþñü â ÷àòàõ");
-	JRadioButton Button6 = new JRadioButton("Ñâîáîäíî è ãðàìîòíî ïèøó òåêñòû ðàçëè÷íûõ æàíðîâ");//
-	
-	JRadioButton Button7 = new JRadioButton("Íå óìåþ ÷èòàòü èëè ÷èòàþ íåñêîëüêî ñëîâ è ôðàç");
-	JRadioButton Button8 = new JRadioButton("×èòàþ íå ñèëüíî ñëîæíûå òåêñòû è ñòàòüè");
-	JRadioButton Button9 = new JRadioButton("Ñâîáîäíî ÷èòàþ ëþáóþ ëèòåðàòóðó â îðèãèíàëå");//
-	
-	JRadioButton Button10 = new JRadioButton("Íå ïîíèìàþ íà ñëóõ èëè ïîíèìàþ ëèøü íåêîòðûå ñëîâà");
-	JRadioButton Button11 = new JRadioButton("Ïîíèìàþ ðå÷ü íà îáùèå òåìû, îáùèé ñìûñë ïåñåí, ÒÂ ïðîãðàìì èòä");
-	JRadioButton Button12 = new JRadioButton("Ñâîáîäíî ïîíèìàþ ðå÷ü íîñèòåëÿ ÿçûêà ");//
-	
-	JRadioButton Button13 = new JRadioButton("Çíàþ âñåãî íåñêîëüêî àíãëèéñêèõ ñëîâ");
-	JRadioButton Button14 = new JRadioButton("Çíàþ äîñòàòî÷íî ñëîâ ÷òî áû îáùàòüñÿ íà îáùèå òåìû");
-	JRadioButton Button15 = new JRadioButton("Çíàþ ìíîãî ñëîâ, â òîì ÷èñëå èç ñïåöèàëüíûõ îáëàñòåé è ñëåíã");//
-	
-	
-	Button1.setBackground(new Color(255, 	218, 	185));
-	Button2.setBackground(new Color(255, 	218, 	185));
-	Button3.setBackground(new Color(255, 	218, 	185));
-	Button4.setBackground(new Color(255, 	218, 	185));
-	Button5.setBackground(new Color(255, 	218, 	185));
-	Button6.setBackground(new Color(255, 	218, 	185));
-	Button7.setBackground(new Color(255, 	218, 	185));
-	Button8.setBackground(new Color(255, 	218, 	185));
-	Button9.setBackground(new Color(255, 	218, 	185));
-	Button10.setBackground(new Color(255, 	218, 	185));
-	Button11.setBackground(new Color(255, 	218, 	185));
-	Button12.setBackground(new Color(255, 	218, 	185));
-	Button13.setBackground(new Color(255, 	218, 	185));
-	Button14.setBackground(new Color(255, 	218, 	185));
-	Button15.setBackground(new Color(255, 	218, 	185));
-	
-	Button1.setFocusPainted(false);
-	
-	Font font = new Font("Verdana", Font.PLAIN, 14); 
-	Font font1 = new Font("Verdana", Font.PLAIN, 12); 
-	Button1.setFont(font);
-	Button2.setFont(font);
-	Button3.setFont(font);
-	Button4.setFont(font1);
-	Button5.setFont(font1);
-	Button6.setFont(font1);
-	Button7.setFont(font);
-	Button8.setFont(font);
-	Button9.setFont(font);
-	Button10.setFont(font1);
-	Button11.setFont(font1);
-	Button12.setFont(font1);
-	Button13.setFont(font1);
-	Button14.setFont(font1);
-	Button15.setFont(font1);
-	
-	add(Button1).setBounds(30,405,450,50);
-	add(Button2).setBounds(30,465,450,50);
-	add(Button3).setBounds(30,525,450,50);
-	
-	add(Button4).setBounds(30,405,450,50);
-	add(Button5).setBounds(30,465,450,50);
-	add(Button6).setBounds(30,525,450,50);
-	
-	add(Button7).setBounds(30,405,450,50);
-	add(Button8).setBounds(30,465,450,50);
-	add(Button9).setBounds(30,525,450,50);
-	
-	add(Button10).setBounds(30,405,450,50);
-	add(Button11).setBounds(30,465,450,50);
-	add(Button12).setBounds(30,525,450,50);
-	
-	add(Button13).setBounds(30,405,450,50);
-	add(Button14).setBounds(30,465,450,50);
-	add(Button15).setBounds(30,525,450,50);
-	
-	Button1.addActionListener(new ActionListener() {
-        public void actionPerformed(ActionEvent e) {
-        	Button1.setSelected(true);
-        	Button2.setSelected(false);
-        	Button3.setSelected(false);
-        }
-    });
-	Button2.addActionListener(new ActionListener() {
-        public void actionPerformed(ActionEvent e) {
-        	Button1.setSelected(false);
-        	Button2.setSelected(true);
-        	Button3.setSelected(false);
-        }
-    });
-	
-	Button3.addActionListener(new ActionListener() {
-        public void actionPerformed(ActionEvent e) {
-        	Button1.setSelected(false);
-        	Button2.setSelected(false);
-        	Button3.setSelected(true);
-        }
-    });
-	
-	Button4.addActionListener(new ActionListener() {
-        public void actionPerformed(ActionEvent e) {
-        	Button4.setSelected(true);
-        	Button5.setSelected(false);
-        	Button6.setSelected(false);
-        }
-    });
-	Button5.addActionListener(new ActionListener() {
-        public void actionPerformed(ActionEvent e) {
-        	Button4.setSelected(false);
-        	Button5.setSelected(true);
-        	Button6.setSelected(false);
-        }
-    });
-	
-	Button6.addActionListener(new ActionListener() {
-        public void actionPerformed(ActionEvent e) {
-        	Button4.setSelected(false);
-        	Button5.setSelected(false);
-        	Button6.setSelected(true);
-        }
-    });
-	
-	Button7.addActionListener(new ActionListener() {
-        public void actionPerformed(ActionEvent e) {
-        	Button7.setSelected(true);
-        	Button8.setSelected(false);
-        	Button9.setSelected(false);
-        }
-    });
-	Button8.addActionListener(new ActionListener() {
-        public void actionPerformed(ActionEvent e) {
-        	Button7.setSelected(false);
-        	Button8.setSelected(true);
-        	Button9.setSelected(false);
-        }
-    });
-	
-	Button9.addActionListener(new ActionListener() {
-        public void actionPerformed(ActionEvent e) {
-        	Button7.setSelected(false);
-        	Button8.setSelected(false);
-        	Button9.setSelected(true);
-        }
-    });
-	
-	Button10.addActionListener(new ActionListener() {
-        public void actionPerformed(ActionEvent e) {
-        	Button10.setSelected(true);
-        	Button11.setSelected(false);
-        	Button12.setSelected(false);
-        }
-    });
-	Button11.addActionListener(new ActionListener() {
-        public void actionPerformed(ActionEvent e) {
-        	Button10.setSelected(false);
-        	Button11.setSelected(true);
-        	Button12.setSelected(false);
-        }
-    });
-	
-	Button12.addActionListener(new ActionListener() {
-        public void actionPerformed(ActionEvent e) {
-        	Button10.setSelected(false);
-        	Button11.setSelected(false);
-        	Button12.setSelected(true);
-        }
-    });
-	
-	Button13.addActionListener(new ActionListener() {
-        public void actionPerformed(ActionEvent e) {
-        	Button13.setSelected(true);
-        	Button14.setSelected(false);
-        	Button15.setSelected(false);
-        }
-    });
-	Button14.addActionListener(new ActionListener() {
-        public void actionPerformed(ActionEvent e) {
-        	Button13.setSelected(false);
-        	Button14.setSelected(true);
-        	Button15.setSelected(false);
-        }
-    });
-	
-	Button15.addActionListener(new ActionListener() {
-        public void actionPerformed(ActionEvent e) {
-        	Button13.setSelected(false);
-        	Button14.setSelected(false);
-        	Button15.setSelected(true);
-        }
-    });
-	
-	JButton nextButton = new JButton("NEXT");
-	add(nextButton).setBounds(400,640,100,35);
-	JButton backButton = new JButton("BACK");
-	add(backButton).setBounds(35,640,100,35);
-	JButton nextButton1 = new JButton("NEXT");
-	add(nextButton1).setBounds(400,640,100,35);
-	JButton backButton1 = new JButton("BACK");
-	add(backButton1).setBounds(35,640,100,35);
-	JButton nextButton2 = new JButton("NEXT");
-	add(nextButton2).setBounds(400,640,100,35);
-	JButton backButton2 = new JButton("BACK");
-	add(backButton2).setBounds(35,640,100,35);
-	JButton nextButton3 = new JButton("NEXT");
-	add(nextButton3).setBounds(400,640,100,35);
-	JButton backButton3 = new JButton("BACK");
-	add(backButton3).setBounds(35,640,100,35);
-	JButton nextButton4 = new JButton("NEXT");
-	add(nextButton4).setBounds(400,640,100,35);
-	JButton backButton4 = new JButton("BACK");
-	add(backButton4).setBounds(35,640,100,35);
-	
-	
-	nextButton.addActionListener(new ActionListener() {
-        public void actionPerformed(ActionEvent e) {
-        	s="ÏÈØÓ";
-        	Button1.setVisible(false);
-        	Button2.setVisible(false);
-        	Button3.setVisible(false);
-        	Button4.setVisible(true);
-        	Button5.setVisible(true);
-        	Button6.setVisible(true);
-        	
-        	nextButton.setVisible(false);
-        	nextButton1.setVisible(true);
-        	backButton.setVisible(false);
-        	backButton1.setVisible(true);
-        	
-        }
-    });
-	nextButton1.addActionListener(new ActionListener() {
-        public void actionPerformed(ActionEvent e) {
-        	s="×ÈÒÀÞ";
-        	Button4.setVisible(false);
-        	Button5.setVisible(false);
-        	Button6.setVisible(false);
-        	Button7.setVisible(true);
-        	Button8.setVisible(true);
-        	Button9.setVisible(true);
-        	
-        	nextButton1.setVisible(false);
-        	nextButton2.setVisible(true);
-        	backButton1.setVisible(false);
-        	backButton2.setVisible(true);
-        }
-    });
-	nextButton2.addActionListener(new ActionListener() {
-        public void actionPerformed(ActionEvent e) {
-        	s="ÏÎÍÈÌÀÞ ÍÀ ÑËÓÕ";
-        	Button7.setVisible(false);
-        	Button8.setVisible(false);
-        	Button9.setVisible(false);
-        	Button10.setVisible(true);
-        	Button11.setVisible(true);
-        	Button12.setVisible(true);
-        	
-        	nextButton2.setVisible(false);
-        	nextButton3.setVisible(true);
-        	backButton2.setVisible(false);
-        	backButton3.setVisible(true);
-        }
-    });
-	nextButton3.addActionListener(new ActionListener() {
-        public void actionPerformed(ActionEvent e) {
-        	s="ÇÍÀÞ ÑËÎÂÀ";
-        	Button10.setVisible(false);
-        	Button11.setVisible(false);
-        	Button12.setVisible(false);
-        	Button13.setVisible(true);
-        	Button14.setVisible(true);
-        	Button15.setVisible(true);
-        	
-        	nextButton3.setVisible(false);
-        	nextButton4.setVisible(true);
-        	backButton3.setVisible(false);
-        	backButton4.setVisible(true);
-        }
-    });
-	
-	backButton.addActionListener(new ActionListener() {
-        public void actionPerformed(ActionEvent e) {
-        	JFrame frame;
-        	RegistrationPanel.frame1.dispose();	
-        	try {
-				frame = new RegistrationFrame();
-				frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-				frame.setVisible(true);
-			} catch (ClassNotFoundException e1) {
-				// TODO Auto-generated catch block
-				e1.printStackTrace();
+	private String s="Ð“ÐžÐ’ÐžÐ Ð®";
+	private String B1 ="Ð‘ÐµÐ³Ð»Ð¾ Ð¸ Ð³Ñ€Ð°Ð¼Ð¾Ñ‚Ð½Ð¾ Ñ€Ð°Ð·Ð³Ð¾Ð²Ð°Ñ€Ð¸Ð²Ð°ÑŽ \n"
+			+ "Ð½Ð° Ð»ÑŽÐ±Ñ‹Ðµ Ñ‚ÐµÐ¼Ñ‹";
+	static int low;
+	static int middle;
+	static int high;
+
+	public LevelTestPanel(){
+		setLayout(null); 
+		ImageIcon image1 = new ImageIcon(getClass().getResource("speak.jpg"));
+		JLabel label1 = new JLabel(image1);
+		add(label1).setBounds(183, 125, 175, 175);
+		ImageIcon image2 = new ImageIcon(getClass().getResource("write.jpg"));
+		JLabel label2 = new JLabel(image2);
+		add(label2).setBounds(183, 125, 175, 175);
+		label2.setVisible(false);
+		ImageIcon image3 = new ImageIcon(getClass().getResource("read.jpg"));
+		JLabel label3 = new JLabel(image3);
+		add(label3).setBounds(183, 125, 175, 175);
+		label3.setVisible(false);
+		ImageIcon image4 = new ImageIcon(getClass().getResource("listen.jpg"));
+		JLabel label4 = new JLabel(image4);
+		add(label4).setBounds(183, 125, 175, 175);
+		label4.setVisible(false);
+		ImageIcon image5 = new ImageIcon(getClass().getResource("vocabulary.jpg"));
+		JLabel label5 = new JLabel(image5);
+		add(label5).setBounds(183, 125, 175, 175);
+		label5.setVisible(false);
+		try {               
+			speak = ImageIO.read(new File("Image/speak.jpg"));
+			write = ImageIO.read(new File("Image/write.jpg"));
+			read = ImageIO.read(new File("Image/read.jpg"));
+			listen = ImageIO.read(new File("Image/listen.jpg"));
+			vocabulary = ImageIO.read(new File("Image/vocabulary.jpg"));
+		} catch (IOException ex) {}
+
+		JRadioButton Button1 = new JRadioButton("ÐÐµ Ð¼Ð¾Ð³Ñƒ Ð³Ð¾Ð²Ð¾Ñ€Ð¸Ñ‚ÑŒ, Ð½Ð¾ Ð·Ð½Ð°ÑŽ Ð½ÐµÑÐºÐ¾Ð»ÑŒÐºÐ¾ ÑÐ»Ð¾Ð² ÑÐ»Ð¾Ð² Ð¸ Ñ„Ñ€Ð°Ð·");
+		JRadioButton Button2 = new JRadioButton("Ð¡ Ð¾ÑˆÐ¸Ð±ÐºÐ°Ð¼Ð¸, Ð½Ð¾ Ð³Ð¾Ð²Ð¾Ñ€ÑŽ Ð½Ð° Ð¾Ð±Ñ‰Ð¸Ðµ Ñ‚ÐµÐ¼Ñ‹");
+		JRadioButton Button3 = new JRadioButton(B1);//
+
+		JRadioButton Button4 = new JRadioButton("ÐÐµ ÑƒÐ¼ÐµÑŽ Ð¿Ð¸ÑÐ°Ñ‚ÑŒ, Ð¸Ð»Ð¸ Ð¼Ð¾Ð³Ñƒ Ð½Ð°Ð¿Ð¸ÑÐ°Ñ‚ÑŒ Ð½ÐµÑÐºÐ¾Ð»ÑŒÐºÐ¾ ÑÐ»Ð¾Ð² Ð¸ Ñ„Ñ€Ð°Ð·");
+		JRadioButton Button5 = new JRadioButton("Ð˜ÑÐ¿Ð¾Ð»ÑŒÐ·ÑƒÑ ÑÐ»Ð¾Ð²Ð°Ñ€Ð¸ Ð¿Ð¸ÑˆÑƒ Ð¿Ñ€Ð¾ÑÑ‚Ñ‹Ðµ Ð¿Ð¸ÑÑŒÐ¼Ð°, Ð¾Ð±Ñ‰Ð°ÑŽÑÑŒ Ð² Ñ‡Ð°Ñ‚Ð°Ñ…");
+		JRadioButton Button6 = new JRadioButton("Ð¡Ð²Ð¾Ð±Ð¾Ð´Ð½Ð¾ Ð¸ Ð³Ñ€Ð°Ð¼Ð¾Ñ‚Ð½Ð¾ Ð¿Ð¸ÑˆÑƒ Ñ‚ÐµÐºÑÑ‚Ñ‹ Ñ€Ð°Ð·Ð»Ð¸Ñ‡Ð½Ñ‹Ñ… Ð¶Ð°Ð½Ñ€Ð¾Ð²");//
+
+		JRadioButton Button7 = new JRadioButton("ÐÐµ ÑƒÐ¼ÐµÑŽ Ñ‡Ð¸Ñ‚Ð°Ñ‚ÑŒ Ð¸Ð»Ð¸ Ñ‡Ð¸Ñ‚Ð°ÑŽ Ð½ÐµÑÐºÐ¾Ð»ÑŒÐºÐ¾ ÑÐ»Ð¾Ð² Ð¸ Ñ„Ñ€Ð°Ð·");
+		JRadioButton Button8 = new JRadioButton("Ð§Ð¸Ñ‚Ð°ÑŽ Ð½Ðµ ÑÐ¸Ð»ÑŒÐ½Ð¾ ÑÐ»Ð¾Ð¶Ð½Ñ‹Ðµ Ñ‚ÐµÐºÑÑ‚Ñ‹ Ð¸ ÑÑ‚Ð°Ñ‚ÑŒÐ¸");
+		JRadioButton Button9 = new JRadioButton("Ð¡Ð²Ð¾Ð±Ð¾Ð´Ð½Ð¾ Ñ‡Ð¸Ñ‚Ð°ÑŽ Ð»ÑŽÐ±ÑƒÑŽ Ð»Ð¸Ñ‚ÐµÑ€Ð°Ñ‚ÑƒÑ€Ñƒ Ð² Ð¾Ñ€Ð¸Ð³Ð¸Ð½Ð°Ð»Ðµ");//
+
+		JRadioButton Button10 = new JRadioButton("ÐÐµ Ð¿Ð¾Ð½Ð¸Ð¼Ð°ÑŽ Ð½Ð° ÑÐ»ÑƒÑ… Ð¸Ð»Ð¸ Ð¿Ð¾Ð½Ð¸Ð¼Ð°ÑŽ Ð»Ð¸ÑˆÑŒ Ð½ÐµÐºÐ¾Ñ‚Ñ€Ñ‹Ðµ ÑÐ»Ð¾Ð²Ð°");
+		JRadioButton Button11 = new JRadioButton("ÐŸÐ¾Ð½Ð¸Ð¼Ð°ÑŽ Ñ€ÐµÑ‡ÑŒ Ð½Ð° Ð¾Ð±Ñ‰Ð¸Ðµ Ñ‚ÐµÐ¼Ñ‹, Ð¾Ð±Ñ‰Ð¸Ð¹ ÑÐ¼Ñ‹ÑÐ» Ð¿ÐµÑÐµÐ½, Ð¢Ð’ Ð¿Ñ€Ð¾Ð³Ñ€Ð°Ð¼Ð¼ Ð¸Ñ‚Ð´");
+		JRadioButton Button12 = new JRadioButton("Ð¡Ð²Ð¾Ð±Ð¾Ð´Ð½Ð¾ Ð¿Ð¾Ð½Ð¸Ð¼Ð°ÑŽ Ñ€ÐµÑ‡ÑŒ Ð½Ð¾ÑÐ¸Ñ‚ÐµÐ»Ñ ÑÐ·Ñ‹ÐºÐ° ");//
+
+		JRadioButton Button13 = new JRadioButton("Ð—Ð½Ð°ÑŽ Ð²ÑÐµÐ³Ð¾ Ð½ÐµÑÐºÐ¾Ð»ÑŒÐºÐ¾ Ð°Ð½Ð³Ð»Ð¸Ð¹ÑÐºÐ¸Ñ… ÑÐ»Ð¾Ð²");
+		JRadioButton Button14 = new JRadioButton("Ð—Ð½Ð°ÑŽ Ð´Ð¾ÑÑ‚Ð°Ñ‚Ð¾Ñ‡Ð½Ð¾ ÑÐ»Ð¾Ð² Ñ‡Ñ‚Ð¾ Ð±Ñ‹ Ð¾Ð±Ñ‰Ð°Ñ‚ÑŒÑÑ Ð½Ð° Ð¾Ð±Ñ‰Ð¸Ðµ Ñ‚ÐµÐ¼Ñ‹");
+		JRadioButton Button15 = new JRadioButton("Ð—Ð½Ð°ÑŽ Ð¼Ð½Ð¾Ð³Ð¾ ÑÐ»Ð¾Ð², Ð² Ñ‚Ð¾Ð¼ Ñ‡Ð¸ÑÐ»Ðµ Ð¸Ð· ÑÐ¿ÐµÑ†Ð¸Ð°Ð»ÑŒÐ½Ñ‹Ñ… Ð¾Ð±Ð»Ð°ÑÑ‚ÐµÐ¹ Ð¸ ÑÐ»ÐµÐ½Ð³");//
+
+
+		Button1.setBackground(new Color(255,235,205));
+		Button2.setBackground(new Color(255,235,205));
+		Button3.setBackground(new Color(255,235,205));
+		Button4.setBackground(new Color(255,235,205));
+		Button5.setBackground(new Color(255,235,205));
+		Button6.setBackground(new Color(255,235,205));
+		Button7.setBackground(new Color(255,235,205));
+		Button8.setBackground(new Color(255,235,205));
+		Button9.setBackground(new Color(255,235,205));
+		Button10.setBackground(new Color(255,235,205));
+		Button11.setBackground(new Color(255,235,205));
+		Button12.setBackground(new Color(255,235,205));
+		Button13.setBackground(new Color(255,235,205));
+		Button14.setBackground(new Color(255,235,205));
+		Button15.setBackground(new Color(255,235,205));
+
+		Button1.setFocusPainted(false);
+		Button4.setFocusPainted(false);
+		Button7.setFocusPainted(false);
+		Button10.setFocusPainted(false);
+		Button13.setFocusPainted(false);
+
+		Font font = new Font("Verdana", Font.PLAIN, 14); 
+		Font font1 = new Font("Verdana", Font.PLAIN, 12); 
+		Button1.setFont(font);
+		Button2.setFont(font);
+		Button3.setFont(font);
+		Button4.setFont(font1);
+		Button5.setFont(font1);
+		Button6.setFont(font1);
+		Button7.setFont(font);
+		Button8.setFont(font);
+		Button9.setFont(font);
+		Button10.setFont(font1);
+		Button11.setFont(font1);
+		Button12.setFont(font1);
+		Button13.setFont(font1);
+		Button14.setFont(font1);
+		Button15.setFont(font1);
+
+		add(Button1).setBounds(30,405,450,50);
+		add(Button2).setBounds(30,465,450,50);
+		add(Button3).setBounds(30,525,450,50);
+
+		add(Button4).setBounds(30,405,450,50);
+		add(Button5).setBounds(30,465,450,50);
+		add(Button6).setBounds(30,525,450,50);
+
+		add(Button7).setBounds(30,405,450,50);
+		add(Button8).setBounds(30,465,450,50);
+		add(Button9).setBounds(30,525,450,50);
+
+		add(Button10).setBounds(30,405,450,50);
+		add(Button11).setBounds(30,465,450,50);
+		add(Button12).setBounds(30,525,450,50);
+
+		add(Button13).setBounds(30,405,450,50);
+		add(Button14).setBounds(30,465,450,50);
+		add(Button15).setBounds(30,525,450,50);
+
+		Button1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Button1.setSelected(true);
+				Button2.setSelected(false);
+				Button3.setSelected(false);
 			}
-			
-        }
-    });
-	backButton1.addActionListener(new ActionListener() {
-        public void actionPerformed(ActionEvent e) {
-        	s="ÃÎÂÎÐÞ";
-        	Button4.setVisible(false);
-        	Button5.setVisible(false);
-        	Button6.setVisible(false);
-        	Button1.setVisible(true);
-        	Button2.setVisible(true);
-        	Button3.setVisible(true);
-        	
-        	nextButton1.setVisible(false);
-        	nextButton.setVisible(true);
-        	backButton1.setVisible(false);
-        	backButton.setVisible(true);
-        	
-        }
-    });
-	backButton2.addActionListener(new ActionListener() {
-        public void actionPerformed(ActionEvent e) {
-        	s="ÏÈØÓ";
-        	Button7.setVisible(false);
-        	Button8.setVisible(false);
-        	Button9.setVisible(false);
-        	Button4.setVisible(true);
-        	Button5.setVisible(true);
-        	Button6.setVisible(true);
-        	
-        	nextButton2.setVisible(false);
-        	nextButton1.setVisible(true);
-        	backButton2.setVisible(false);
-        	backButton1.setVisible(true);
-        }
-    });
-	backButton3.addActionListener(new ActionListener() {
-        public void actionPerformed(ActionEvent e) {
-        	s="×ÈÒÀÞ";
-        	Button10.setVisible(false);
-        	Button11.setVisible(false);
-        	Button12.setVisible(false);
-        	Button7.setVisible(true);
-        	Button8.setVisible(true);
-        	Button9.setVisible(true);
-        	
-        	nextButton3.setVisible(false);
-        	nextButton2.setVisible(true);
-        	backButton3.setVisible(false);
-        	backButton2.setVisible(true);
-        }
-    });
-	backButton4.addActionListener(new ActionListener() {
-        public void actionPerformed(ActionEvent e) {
-        	s="ÏÎÍÈÌÀÞ ÍÀ ÑËÓÕ";
-        	Button13.setVisible(false);
-        	Button14.setVisible(false);
-        	Button15.setVisible(false);
-        	Button10.setVisible(true);
-        	Button11.setVisible(true);
-        	Button12.setVisible(true);
-        	
-        	nextButton4.setVisible(false);
-        	nextButton3.setVisible(true);
-        	backButton4.setVisible(false);
-        	backButton3.setVisible(true);
-        }
-    });
-	
-}
+		});
+		Button2.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Button1.setSelected(false);
+				Button2.setSelected(true);
+				Button3.setSelected(false);
+			}
+		});
 
-public void paint(Graphics g){
-	super.paint(g);
-	Font font = new Font("Verdana", Font.BOLD, 16); 
-	g.setFont(font);
-	if (s=="ÏÎÍÈÌÀÞ ÍÀ ÑËÓÕ" || s=="ÇÍÀÞ ÑËÎÂÀ"){
-		g.drawString(s, 200, 375);
+		Button3.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Button1.setSelected(false);
+				Button2.setSelected(false);
+				Button3.setSelected(true);
+			}
+		});
+
+		Button4.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Button4.setSelected(true);
+				Button5.setSelected(false);
+				Button6.setSelected(false);
+			}
+		});
+		Button5.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Button4.setSelected(false);
+				Button5.setSelected(true);
+				Button6.setSelected(false);
+			}
+		});
+
+		Button6.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Button4.setSelected(false);
+				Button5.setSelected(false);
+				Button6.setSelected(true);
+			}
+		});
+
+		Button7.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Button7.setSelected(true);
+				Button8.setSelected(false);
+				Button9.setSelected(false);
+			}
+		});
+		Button8.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Button7.setSelected(false);
+				Button8.setSelected(true);
+				Button9.setSelected(false);
+			}
+		});
+
+		Button9.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Button7.setSelected(false);
+				Button8.setSelected(false);
+				Button9.setSelected(true);
+			}
+		});
+
+		Button10.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Button10.setSelected(true);
+				Button11.setSelected(false);
+				Button12.setSelected(false);
+			}
+		});
+		Button11.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Button10.setSelected(false);
+				Button11.setSelected(true);
+				Button12.setSelected(false);
+			}
+		});
+
+		Button12.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Button10.setSelected(false);
+				Button11.setSelected(false);
+				Button12.setSelected(true);
+			}
+		});
+
+		Button13.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Button13.setSelected(true);
+				Button14.setSelected(false);
+				Button15.setSelected(false);
+			}
+		});
+		Button14.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Button13.setSelected(false);
+				Button14.setSelected(true);
+				Button15.setSelected(false);
+			}
+		});
+
+		Button15.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Button13.setSelected(false);
+				Button14.setSelected(false);
+				Button15.setSelected(true);
+			}
+		});
+
+		JButton nextButton = new JButton("NEXT");
+		add(nextButton).setBounds(400,640,100,35);
+		JButton backButton = new JButton("BACK");
+		add(backButton).setBounds(35,640,100,35);
+		JButton nextButton1 = new JButton("NEXT");
+		add(nextButton1).setBounds(400,640,100,35);
+		JButton backButton1 = new JButton("BACK");
+		add(backButton1).setBounds(35,640,100,35);
+		JButton nextButton2 = new JButton("NEXT");
+		add(nextButton2).setBounds(400,640,100,35);
+		JButton backButton2 = new JButton("BACK");
+		add(backButton2).setBounds(35,640,100,35);
+		JButton nextButton3 = new JButton("NEXT");
+		add(nextButton3).setBounds(400,640,100,35);
+		JButton backButton3 = new JButton("BACK");
+		add(backButton3).setBounds(35,640,100,35);
+		JButton nextButton4 = new JButton("NEXT");
+		add(nextButton4).setBounds(400,640,100,35);
+		JButton backButton4 = new JButton("BACK");
+		add(backButton4).setBounds(35,640,100,35);
+
+		nextButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if (Button1.isSelected()==true){
+					low++;
+				}
+				if (Button2.isSelected()==true){
+					low=low+2;
+				}
+				if (Button3.isSelected()==true){
+					low=low+3;
+				}
+				s="ÐŸÐ˜Ð¨Ð£";
+				Button1.setVisible(false);
+				Button2.setVisible(false);
+				Button3.setVisible(false);
+				Button4.setVisible(true);
+				Button5.setVisible(true);
+				Button6.setVisible(true);
+
+				nextButton.setVisible(false);
+				nextButton1.setVisible(true);
+				backButton.setVisible(false);
+				backButton1.setVisible(true);
+
+				label1.setVisible(false);
+		        label2.setVisible(true);
+		        label3.setVisible(false);
+		        label4.setVisible(false);
+		        label5.setVisible(false);
+			}
+		});
+		nextButton1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if (Button4.isSelected()==true){
+					low++;
+				}
+				if (Button5.isSelected()==true){
+					low=low+2;
+				}
+				if (Button6.isSelected()==true){
+					low=low+3;
+				}
+				s="Ð§Ð˜Ð¢ÐÐ®";
+				Button4.setVisible(false);
+				Button5.setVisible(false);
+				Button6.setVisible(false);
+				Button7.setVisible(true);
+				Button8.setVisible(true);
+				Button9.setVisible(true);
+
+				nextButton1.setVisible(false);
+				nextButton2.setVisible(true);
+				backButton1.setVisible(false);
+				backButton2.setVisible(true);
+				
+				label1.setVisible(false);
+		        label2.setVisible(false);
+		        label3.setVisible(true);
+		        label4.setVisible(false);
+		        label5.setVisible(false);
+			}
+		});
+		nextButton2.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if (Button7.isSelected()==true){
+					low++;
+				}
+				if (Button8.isSelected()==true){
+					low=low+2;
+				}
+				if (Button9.isSelected()==true){
+					low=low+3;
+				}
+				s="ÐŸÐžÐÐ˜ÐœÐÐ® ÐÐ Ð¡Ð›Ð£Ð¥";
+				Button7.setVisible(false);
+				Button8.setVisible(false);
+				Button9.setVisible(false);
+				Button10.setVisible(true);
+				Button11.setVisible(true);
+				Button12.setVisible(true);
+
+				nextButton2.setVisible(false);
+				nextButton3.setVisible(true);
+				backButton2.setVisible(false);
+				backButton3.setVisible(true);
+				
+				label1.setVisible(false);
+		        label2.setVisible(false);
+		        label3.setVisible(false);
+		        label4.setVisible(true);
+		        label5.setVisible(false);
+			}
+		});
+		nextButton3.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if (Button10.isSelected()==true){
+					low++;
+				}
+				if (Button11.isSelected()==true){
+					low=low+2;
+				}
+				if (Button12.isSelected()==true){
+					low=low+3;
+				}
+				s="Ð—ÐÐÐ® Ð¡Ð›ÐžÐ’Ð";
+				Button10.setVisible(false);
+				Button11.setVisible(false);
+				Button12.setVisible(false);
+				Button13.setVisible(true);
+				Button14.setVisible(true);
+				Button15.setVisible(true);
+
+				nextButton3.setVisible(false);
+				nextButton4.setVisible(true);
+				backButton3.setVisible(false);
+				backButton4.setVisible(true);
+				
+				label1.setVisible(false);
+		        label2.setVisible(false);
+		        label3.setVisible(false);
+		        label4.setVisible(false);
+		        label5.setVisible(true);
+			}
+		});
+
+		nextButton4.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent e) {
+				if (Button13.isSelected()==true){
+					low++;
+					low=low/5;
+				}
+				if (Button14.isSelected()==true){
+					low=low+2;
+					low=low/5;
+				}
+				if (Button15.isSelected()==true){
+					low=low+3;
+					low=low/5;
+				} 
+
+				try{
+					if ((low==1)){
+						frame2 = new LevelResultFrame(1);
+					}
+					if ((low>1)&&(2<=low)){
+						frame2 = new LevelResultFrame(2);
+					}
+					if ((low>2)&&(3<=low)){
+						frame2 = new LevelResultFrame(3);
+					}
+
+					frame2.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+					frame2.setVisible(true);
+
+				} catch (ClassNotFoundException e1) {
+					e1.printStackTrace();
+				}
+				RegistrationPanel.frame1.dispose();
+			}
+		});
+
+		backButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				JFrame frame;
+				RegistrationPanel.frame1.dispose(); 
+				try {
+					frame = new RegistrationFrame("ÐžÐºÐ½Ð¾ Ñ€ÐµÐ³Ð¸ÑÑ‚Ñ€Ð°Ñ†Ð¸Ð¸");
+					frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+					frame.setVisible(true);
+				} catch (ClassNotFoundException e1) {
+					e1.printStackTrace();
+				}
+
+			}
+		});
+		backButton1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				s="Ð“ÐžÐ’ÐžÐ Ð®";
+				Button4.setVisible(false);
+				Button5.setVisible(false);
+				Button6.setVisible(false);
+				Button1.setVisible(true);
+				Button2.setVisible(true);
+				Button3.setVisible(true);
+
+				nextButton1.setVisible(false);
+				nextButton.setVisible(true);
+				backButton1.setVisible(false);
+				backButton.setVisible(true);
+
+			}
+		});
+		backButton2.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				s="ÐŸÐ˜Ð¨Ð£";
+				Button7.setVisible(false);
+				Button8.setVisible(false);
+				Button9.setVisible(false);
+				Button4.setVisible(true);
+				Button5.setVisible(true);
+				Button6.setVisible(true);
+
+				nextButton2.setVisible(false);
+				nextButton1.setVisible(true);
+				backButton2.setVisible(false);
+				backButton1.setVisible(true);
+			}
+		});
+		backButton3.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				s="Ð§Ð˜Ð¢ÐÐ®";
+				Button10.setVisible(false);
+				Button11.setVisible(false);
+				Button12.setVisible(false);
+				Button7.setVisible(true);
+				Button8.setVisible(true);
+				Button9.setVisible(true);
+
+				nextButton3.setVisible(false);
+				nextButton2.setVisible(true);
+				backButton3.setVisible(false);
+				backButton2.setVisible(true);
+			}
+		});
+		backButton4.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				s="ÐŸÐžÐÐ˜ÐœÐÐ® ÐÐ Ð¡Ð›Ð£Ð¥";
+				Button13.setVisible(false);
+				Button14.setVisible(false);
+				Button15.setVisible(false);
+				Button10.setVisible(true);
+				Button11.setVisible(true);
+				Button12.setVisible(true);
+
+				nextButton4.setVisible(false);
+				nextButton3.setVisible(true);
+				backButton4.setVisible(false);
+				backButton3.setVisible(true);
+				RegistrationPanel.frame1.dispose(); 
+				try{
+					newFrame = new LevelTest();
+					newFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+					newFrame.setVisible(true);
+
+				} catch (ClassNotFoundException e1) {
+					e1.printStackTrace();
+				}
+			}
+		});
+
 	}
-	else{
-	g.drawString(s, 235, 375);
+
+	public void paint(Graphics g){
+		super.paint(g);
+		Font font = new Font("Verdana", Font.BOLD, 16); 
+		g.setFont(font);
+		if (s=="ÐŸÐžÐÐ˜ÐœÐÐ® ÐÐ Ð¡Ð›Ð£Ð¥" || s=="Ð—ÐÐÐ® Ð¡Ð›ÐžÐ’Ð"){
+			g.drawString(s, 200, 375);
+		}
+		else{
+			g.drawString(s, 235, 375);
+		}
+		font = new Font("Verdana", Font.BOLD, 16); 
+		g.setFont(font);
+		g.drawString("ÐžÐ¦Ð•ÐÐ˜Ð¢Ð• Ð¡Ð’ÐžÐ˜ ÐÐÐ’Ð«ÐšÐ Ð¯Ð—Ð«ÐšÐ", 131, 50);
+		repaint();
 	}
-    font = new Font("Verdana", Font.BOLD, 16); 
-	g.setFont(font);
-	g.drawString("ÎÖÅÍÈÒÅ ÑÂÎÈ ÍÀÂÛÊÀ ßÇÛÊÀ", 131, 50);
-	repaint();
-}
 
-public void paintComponent(Graphics g) {
-    super.paintComponent(g);
-    Graphics2D g2 = (Graphics2D) g;
-	g2.setStroke(new BasicStroke(3.0f));
-    g.setColor(Color.BLACK); 
-    g.drawOval(144, 80, 253, 253);
-    g.setColor(Color.white);
-    g.fillOval(144, 80, 253, 253);
-    g.drawImage(write, 183, 125, 175, 175, this);
-    g.drawImage(speak, 183, 125, 175, 175, this);
-    
-}
-}
+	public void paintComponent(Graphics g) {
+		super.paintComponent(g);
+		Graphics2D g2 = (Graphics2D) g;
+		g2.setStroke(new BasicStroke(3.0f));
+		g.setColor(Color.BLACK); 
+		g.drawOval(144, 80, 253, 253);
+		g.setColor(Color.white);
+		g.fillOval(144, 80, 253, 253);
+		//g.drawImage(write, 183, 125, 175, 175, this);
+		//g.drawImage(speak, 183, 125, 175, 175, this);
 
+	}
+}
