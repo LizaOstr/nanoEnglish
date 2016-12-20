@@ -303,6 +303,7 @@ class LevelTestPanel extends JPanel{
 				if (Button3.isSelected()==true){
 					low=low+3;
 				}
+				if((Button1.isSelected()==true)||(Button2.isSelected()==true)||(Button3.isSelected()==true)){ 
 				s="ПИШУ";
 				Button1.setVisible(false);
 				Button2.setVisible(false);
@@ -321,6 +322,7 @@ class LevelTestPanel extends JPanel{
 		        label3.setVisible(false);
 		        label4.setVisible(false);
 		        label5.setVisible(false);
+				}
 			}
 		});
 		nextButton1.addActionListener(new ActionListener() {
@@ -334,6 +336,7 @@ class LevelTestPanel extends JPanel{
 				if (Button6.isSelected()==true){
 					low=low+3;
 				}
+				if((Button4.isSelected()==true)||(Button5.isSelected()==true)||(Button6.isSelected()==true)){ 
 				s="ЧИТАЮ";
 				Button4.setVisible(false);
 				Button5.setVisible(false);
@@ -353,6 +356,7 @@ class LevelTestPanel extends JPanel{
 		        label4.setVisible(false);
 		        label5.setVisible(false);
 			}
+			}
 		});
 		nextButton2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -365,6 +369,7 @@ class LevelTestPanel extends JPanel{
 				if (Button9.isSelected()==true){
 					low=low+3;
 				}
+				if((Button7.isSelected()==true)||(Button8.isSelected()==true)||(Button9.isSelected()==true)){ 
 				s="ПОНИМАЮ НА СЛУХ";
 				Button7.setVisible(false);
 				Button8.setVisible(false);
@@ -384,6 +389,7 @@ class LevelTestPanel extends JPanel{
 		        label4.setVisible(true);
 		        label5.setVisible(false);
 			}
+			}
 		});
 		nextButton3.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -396,6 +402,7 @@ class LevelTestPanel extends JPanel{
 				if (Button12.isSelected()==true){
 					low=low+3;
 				}
+				if((Button10.isSelected()==true)||(Button11.isSelected()==true)||(Button12.isSelected()==true)){ 
 				s="ЗНАЮ СЛОВА";
 				Button10.setVisible(false);
 				Button11.setVisible(false);
@@ -415,6 +422,7 @@ class LevelTestPanel extends JPanel{
 		        label4.setVisible(false);
 		        label5.setVisible(true);
 			}
+			}
 		});
 
 		nextButton4.addActionListener(new ActionListener(){
@@ -431,7 +439,7 @@ class LevelTestPanel extends JPanel{
 					low=low+3;
 					low=low/5;
 				} 
-
+                if((Button13.isSelected()==true)||(Button14.isSelected()==true)||(Button15.isSelected()==true)){ 
 				try{
 					if ((low==1)){
 						frame2 = new LevelResultFrame(1);
@@ -450,6 +458,7 @@ class LevelTestPanel extends JPanel{
 					e1.printStackTrace();
 				}
 				RegistrationPanel.frame1.dispose();
+			}
 			}
 		});
 
