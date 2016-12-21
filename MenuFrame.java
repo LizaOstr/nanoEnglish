@@ -57,7 +57,7 @@ class MenuPanel extends JPanel{
 			button.addActionListener(new ActionListener(){
 				public void actionPerformed(ActionEvent e) {
 					try{
-						newframe = new ReadingMaterialsFrame();
+						newframe = new ReadingMaterialsFrame(LevelTestPanel.level);
 						newframe.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
 						newframe.setVisible(true);
 					} catch (ClassNotFoundException e2) {

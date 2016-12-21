@@ -7,9 +7,9 @@ import java.io.*;
 import javax.swing.*;
 
 public class ReadingMaterialsFrame extends JFrame{
-	public ReadingMaterialsFrame() throws ClassNotFoundException{
+	public ReadingMaterialsFrame(int level) throws ClassNotFoundException{
 		setSize(550,730);
-		ReadingMaterialsPanel panel = new ReadingMaterialsPanel(1);
+		ReadingMaterialsPanel panel = new ReadingMaterialsPanel(level);
 		JScrollPane scrollPane = new JScrollPane(panel);
 		scrollPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
 		scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
@@ -18,9 +18,9 @@ public class ReadingMaterialsFrame extends JFrame{
 }
 
 class ReadingMaterialsPanel extends JPanel{
-	String filename_level1[] = {"Text level 1/Christmas Cards", "Text level 1/Hit the Floor!", "Text level 1/Learning foreign languages", "Text level 1/The jackal and the elephant", "Text level 1/Traveling around the USA"};
-	String filename_level2[] = {};
-	String filename_level3[] = {};
+	String filename_level1[] = {"Christmas Cards", "Hit the Floor!", "Learning foreign languages", "The jackal and the elephant", "Traveling around the USA","Susan and the Secret Code","Mushrooms","Johnny Appleseed","The fountain of youth","Big Ben"};
+	String filename_level2[] = {"London","Keep Fit","Higher Education In The USA","Football","The Sahara","Chinese New Year","Britain's Universities","The Princess and the Pea","The Pack Of Biscuits","The Christmas Presents"};
+	String filename_level3[] = {"Golf","Electricity","Basketball","Abraham Lincoln","Isaac Newton","The money","The Silver Shilling","Year’s Shortest Day","Do We Need Meat","Michelangelo"};
 	int level, yt,yl;
 	public static Reading_Text newframe;
 
@@ -32,7 +32,7 @@ class ReadingMaterialsPanel extends JPanel{
 		yt = 60;//20
 		yl = 20;
 		if (level==1){
-			for (int i=0; i<5; i++){
+			for (int i=0; i<filename_level1.length; i++){
 				addText(filename_level1[i],yt,yl);
 				yt = yt+280;
 				yl = yl+280;
@@ -61,7 +61,7 @@ class ReadingMaterialsPanel extends JPanel{
 		labelTitle.setBackground(Color.white);
 		add(labelTitle).setBounds(0,yl+10,550,40);
 		
-		String text = reading(filename+".txt");
+		String text = reading("Text level 1/"+filename+".txt");
 		JTextArea textArea = new JTextArea(text);
         textArea.setFont(new Font("Dialog", Font.ROMAN_BASELINE, 14));
         textArea.setLineWrap(true);

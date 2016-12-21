@@ -45,6 +45,9 @@ class LevelTestPanel extends JPanel{
 	static int low;
 	static int middle;
 	static int high;
+	static int level;
+	static int level2=2;
+	static int level3=3;
 
 	public LevelTestPanel(){
 		setLayout(null); 
@@ -442,13 +445,16 @@ class LevelTestPanel extends JPanel{
                 if((Button13.isSelected()==true)||(Button14.isSelected()==true)||(Button15.isSelected()==true)){ 
 				try{
 					if ((low==1)){
-						frame2 = new LevelResultFrame(1);
+						level=1;
+						frame2 = new LevelResultFrame(level);
 					}
 					if ((low>1)&&(2<=low)){
-						frame2 = new LevelResultFrame(2);
+						level=2;
+						frame2 = new LevelResultFrame(level);
 					}
 					if ((low>2)&&(3<=low)){
-						frame2 = new LevelResultFrame(3);
+						level=3;
+						frame2 = new LevelResultFrame(level);
 					}
 
 					frame2.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
